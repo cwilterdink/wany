@@ -1,0 +1,123 @@
+body{
+  text-align: left;
+	font: 11pt "Trebuchet MS";
+	background: #dbecd2;
+	
+}
+
+h1{
+	font: 35pt "Trebuchet MS";
+	color: #FFF;
+	letter-spacing: 5px;
+	display: inline;
+}
+
+h2{
+	font: 11pt "Trebuchet MS";
+	color: #FFF;
+	display: inline;
+}
+
+
+h3{
+	font: 35pt "Trebuchet MS";
+	color: #3d6129;
+
+}
+
+h4{
+	font: 14pt "Trebuchet MS";
+	color: #3d6129;
+
+}
+
+h5{
+	font: 8pt "Trebuchet MS";
+	color: #FFF;
+	display: inline;
+}
+h6{
+	font: 20pt "Trebuchet MS";
+	color:#5f9740;
+	display: inline;
+
+}
+a:link{ 
+	color: #FFF;
+	text-decoration:none;
+
+}
+
+a:visited{
+	color: #FFF;
+	text-decoration:none;
+
+}
+
+a:hover{
+	color: #FFF;
+	text-decoration:underline;
+
+}
+
+a:active{
+	color: #FFF;
+	text-decoration:none;
+}
+
+.right{
+	text-align: right;
+	float: right;
+}
+
+.container{
+	width: 1200px;
+	margin: auto;
+/* set after*/
+}
+
+
+.content{
+	border: 0px dashed;
+	margin: 0px auto;
+	margin: 10px auto;
+}
+
+.nav{
+	background:#5f9740;
+	height: 45px;
+	width: 1180px;
+	padding: 10px;
+	border: 0px dashed;
+	margin: auto;
+
+}
+
+.login{
+	float: right;
+	width: 535px;
+	
+}
+
+.sidePanel{
+	background:#b0d59c;
+	width: 25%;
+	height: 400px;
+	margin: 10px auto;
+	float: left;
+	padding: 5px;
+	
+}
+
+.searchBar{
+	padding: 10px;
+
+}
+
+#feature{
+	background:#b0d59c;
+	width: 70%;
+	height: 410px;
+	float: right;
+}
+

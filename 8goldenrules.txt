@@ -1,0 +1,28 @@
+1: Strive for consistency
+- This will be accomplished by having a consistent design with the pages, using the same colors and fonts across all of the pages. Additionally, all of the "search results" pages will look the same, and will be in the same format. Each individual user's homepage will also look identical, being consistent with the whole design. The sequences to perform actions will always be the same, where the users will first log in, then will be able to search.
+
+2: enable frequent users to use shortcuts
+- Frequent users will be able to have their username remembered when first opening the page to avoid having to re-type it upon each new visit. Because the system is simple, there is no real need for other shortcuts
+
+3: offer informative feedback
+- If the user does not submit the proper credentials for the email or password, a message will be displayed informing them of so. Additionally, each of the place/activity results in the search result page will have basic information about each place, and will have a URL linked to their website if applicable.
+
+4: Design dialog to yield closure
+-Sequences are organized very clearly, where the user will first sign in, and then will be able to search immediately after signing in, finally displaying the results after the search has been completed. Thus finishing the actions. The user will then be able to search again from the search results page, displaying a new results page.
+
+5. Offer Simple Error Handling
+When the user is entering their password, the system will catch any incorrect passwords and give the user the option to go to a password recovery page to retrieve their forgotten password. The password recovery page is very minimal and only asks for the user's email address. In addition, when entering user information for creating accounts, the system will redirect the user back to the “create account” page if the user had entered invalid information for the entries. This will be accompanied by notification of which entries need to be re-entered with valid values.
+
+6. Permit Easy Removal of Actions
+Users will have the ability to edit their user information that shows in their user profile.
+They will also have the ability to remove their user account. This option can be easily accessed 
+through the settings menu on the top right of the navigation bar.
+
+7. Support Internal Locus of Control
+For our system, the user must initiate the creation of an account in order to search within our database. The user has the ability to choose when they want to use our search function allowing them to have control over which actions they want to perform while using our system.
+
+8. Reduce Short-Term Memory Load
+Our system is fairly simple and does not have multiple pages for one task. The account creation process is condensed into one page so that the user may look over all the information before 
+submitting to create their account. When searching for places, the results are displayed all on 
+one scrolling page in list form so that the user does not have to go through multiple pages of 
+results.

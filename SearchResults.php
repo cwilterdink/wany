@@ -1,5 +1,4 @@
 
-
 <?php
 // does not create database, 
 
@@ -65,8 +64,7 @@
   
 	// prints out all names of results
 	// note : Name may need to be changed pending on what field is called in table.
-	$response = $response->body->Items->to_array();
-	foreach($response as $value){
-	echo "<p>". (string) $value->Name->S ."</p>";
+	foreach($response->body->Items as $value){
+	echo "<p>". (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ."</p>";
 }
   ?>

@@ -74,5 +74,5 @@
     $search = $_POST["search"];
     //Call database to search for this variable
   ?>
-    
-
+</body>   
+</html>

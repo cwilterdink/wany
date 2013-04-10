@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-<head>
+  <head>
+    <title>WANY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-<title>WANY</title>
+	<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+  </head>
+  <body>
 
-<link rel="stylesheet" type="text/css" media="all" href="main.css" />
-
-
-</head>
-
-<div class="container">
-  <div class ="nav">
-		<a href="index.php"><h1>WANY</h1></a>
-		<div class ="login">
-			<form action="" method = "get">
-				<h2>
-				Username: <input type = "string" name = "user">
-				Password: <input type = "string" name = "pass">
-				<input type="submit" name="submit" value="Login">
-				</h2>
-			</form>
-			<a href="passwordRecovery.php" class="right"><h5>Forgot Password?</h5></a>
-
-		</div><!--login-->
-	</div><!--nav-->
-
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.php">WANY</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.php">Home</a></li>
+              <li><a href="createAccount.php">Create Account</a></li>
+              <li><a href="passwordRecovery.php">Forogot Password</a></li>
+            </ul>
+			  <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 	
-	<div class ="sidePanel">
-	<br>
-		<center><h6>NEWS</h6><hr></center>
-		<p>We have nothing to say.</p>
+	<div class="container">
+		<h1>Bored? WANY can help you!</h1>
+		<p>Check out our new search function!
+		<br> Something something something</p>
 
-	</div><!--sidePanel-->
-
-	<div class ="content" id="feature">
-		
-
-	</div>
+    </div> <!-- /container -->
 
 
-</div><!--container-->
 
-
-</body>
+	<!------------------------------------------------------------------------->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>

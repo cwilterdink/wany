@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 
 <?php
 // does not create database, 
@@ -7,7 +9,7 @@
   
 	
 	//may not work for everyone. Put credentials getter here
-	require_once dirname(dirname(__FILE__)) . '\www\sdk.class.php';
+	require_once dirname(dirname(__FILE__)) . '..\awstest\sdk.class.php';
 
 	$dynamodb = new AmazonDynamoDB();
 	
@@ -27,44 +29,47 @@
 			)
 		) 
 	)); 
-	/* to be implemeted once search types are implemented into html.
-		inside if statements determinine which search to use using GET or POST from previous page
 	
-	 $response = $dynamodb->scan(array(
-		'TableName' => 'Activities',
-		'ScanFilter' => array(
-			'Price' => array(
-				'ComparisonOperator' => AmazonDynamoDB::CONDITION_GREATER_THAN_OR_EQUAL,
-				'AttributeValueList' => array(
-					array( AmazonDynamoDB::TYPE_NUMBER => $search )
-				)
-			)
-		) 
-	)); 
+ 
 	
-	
-	--------------------------------
-	
-		 $response = $dynamodb->scan(array(
-		'TableName' => 'Activities',
-		'ScanFilter' => array(
-			'Price' => array(
-				'ComparisonOperator' => AmazonDynamoDB::CONDITION_BETWEEN,
-				'AttributeValueList' => array(
-					array( AmazonDynamoDB::TYPE_NUMBER => $searchLow, AmazonDynamoDB::TYPE_NUMBER => $searchHigh  )
-				)
-			)
-		) 
-	)); 
-	
-	
-	*/
-	
-	
-  
-	// prints out all names of results
-	// note : Name may need to be changed pending on what field is called in table.
-	foreach($response->body->Items as $value){
-	echo "<p>". (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ."</p>";
-}
   ?>
+
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Username</a>
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <body>
+    <h3><img src="" alt="logo">WANY
+
+  <form action="SearchResults.php" method="post">
+    Search: <input type="text" name="search"><br>
+    <input type="submit" value="Submit"><br>
+  </form>
+  
+</h3>
+
+  
+
+<?php foreach ($response->body->Items as $value) : ?>
+	<ul>
+		<li> <?php echo (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ?>
+			<ul>
+			<li> <?php echo "Price: " ?> <?php echo "$" ?> <?php echo (string) $value->Price->{AmazonDynamoDB::TYPE_NUMBER} ?> 
+			<li> <?php echo "Activity Type: " ?> <?php echo (string) $value->Type->{AmazonDynamoDB::TYPE_STRING} ?>
+			</ul>
+		</li>
+	</ul>
+<?php endforeach; ?>				
+
+
+
+
+</html>

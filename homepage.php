@@ -26,7 +26,7 @@
   <body>
     <h1><img src="" alt="logo">WANY</h1>
 
-  <form action="#" method="post">
+  <form action="SearchResults.php" method="post">
     Search: <input type="text" name="search"><br>
     <input type="submit" value="Submit"><br>
   </form>

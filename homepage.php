@@ -37,34 +37,54 @@
       </div>
     </div>
 
-	<div class="container">
-		<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
-		      <!-- Expiry-->
-		<div class="control-group">
-			<form action ="SearchResults.php"method="POST">
-			<label class="control-label" for="password">Budget
-				<div class="controls">
-					<select class="span2" name="budget" id="budget">
-						<option></option>
-						<option value="01">$0</option>
-						<option value="02">$1</option>
-						<option value="03">$5</option>
-						<option value="04">$10</option>
-						<option value="05">$15</option>
-						<option value="06">$20</option>
-						<option value="07">$25</option>
-						<option value="08">$30</option>
-						<option value="09">$35</option>
-						<option value="10">$40</option>
-						<option value="11">$45</option>
-						<option value="12">$50+</option>
-					</select>
-				<input class="span4" type="text" name="search">
-				<button type="submit" class="btn btn-success">Submit</button>
-				</label>
-				</div>
-			</form>
-      </div>
+	<div class="container-fluid">
+	
+		 <div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+					<li class="nav-header">User Profile</li>
+
+					<br><br><br><br><br><br><br> <!--potentially profile picture here-->
+					<li class="nav-header">Other</li>
+					<li><a href="#">Link</a></li>
+
+					</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+		
+		<div class="span10">
+          <div class="hero-unit">
+				<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
+				<div class="control-group">
+					<form action ="SearchResults.php"method="POST">
+					<label class="control-label" for="password">Budget
+						<div class="controls">
+							<select class="span2" name="budget" id="budget">
+								<option></option>
+								<option value="01">$0</option>
+								<option value="02">$1</option>
+								<option value="03">$5</option>
+								<option value="04">$10</option>
+								<option value="05">$15</option>
+								<option value="06">$20</option>
+								<option value="07">$25</option>
+								<option value="08">$30</option>
+								<option value="09">$35</option>
+								<option value="10">$40</option>
+								<option value="11">$45</option>
+								<option value="12">$50+</option>
+							</select>
+						<input class="span6" type="text" name="search">
+						<button type="submit" class="btn btn-success">Submit</button>
+					</label>
+						</div>
+				</form>
+				</div><!--/control-group-->
+			</div><!--/hero-->
+		</div><!--/span-->
+	</div><!--/row-->
+		
 
 
 

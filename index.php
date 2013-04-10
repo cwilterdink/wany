@@ -29,7 +29,7 @@
               <li><a href="createAccount.php">Create Account</a></li>
               <li><a href="passwordRecovery.php">Forogot Password</a></li>
             </ul>
-			  <form class="navbar-form pull-right">
+			  <form action ="homepage.php" class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
               <input class="span2" type="password" placeholder="Password">
               <button type="submit" class="btn btn-primary">Sign in</button>
@@ -37,12 +37,15 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>
+    </div><!--/ .navbar-->
 	
 	<div class="container">
-		<h1>Bored? WANY can help you!</h1>
-		<p>Check out our new search function!
-		<br> Something something something</p>
+		<div class="hero-unit">
+			<h1>Bored and on a Budget?</h1> 
+			<h2>WANY can help you!</h2>
+			<p><a href="createAccount.php" class="btn btn-primary btn-large">Sign Up Now! &raquo;</a></p>
+			<p>Enjoy life without breaking the bank.</p>
+		</div>
 
     </div> <!-- /container -->
 

@@ -44,7 +44,7 @@
 			<form action ="SearchResults.php"method="POST">
 			<label class="control-label" for="password">Budget
 				<div class="controls">
-					<select class="span1" name="budget" id="budget">
+					<select class="span2" name="budget" id="budget">
 						<option></option>
 						<option value="01">$0</option>
 						<option value="02">$1</option>

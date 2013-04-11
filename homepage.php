@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+session_regenerate_id();
+if(!isset($_SESSION['user']))
+{	
+	header('Location: index.php');
+}
+?>
+
 <html>
   <head>
     <title>WANY</title>
@@ -29,7 +38,8 @@
             <ul class="nav">
               <li class="active"><a href="index.php">Home</a></li>
               <li><a href="#">Settings</a></li>
-              <li><a href="index.php">Logout</a></li>
+              <li><a href="logout.php">Logout</a>
+			  </li>
             </ul>
 
           </div><!--/.nav-collapse -->

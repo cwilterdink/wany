@@ -35,6 +35,10 @@ $scanresponse = $dynamodb->scan(array(
 
 if ($scanresponse->isOK())
 {
+	if($scanresponse->body->Items==0)
+	{
+			header('Location: index.php');
+	}
 	$temppass = (string) $scanresponse->body->Items->password->{AmazonDynamoDB::TYPE_STRING};
 	if ($temppass == $value)
 	{
@@ -42,12 +46,12 @@ if ($scanresponse->isOK())
 		$_SESSION['user'] = $name;
 		header('Location: homepage.php');
 	}
+	else
+	{
+		header('Location: index.php');
+	}
+}
 
-}
-else
-{
-	header('Location: index.php');
-}
 	
 
 

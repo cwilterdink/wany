@@ -86,8 +86,8 @@ if(!isset($_SESSION['user']))
 								<option value="12">$50+</option>
 							</select>
 						-->
-						<input class="span6" type="text" name="search">
-						<button type="submit" class="btn btn-success">Submit</button>
+						<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">
+						<button type="submit" class="btn btn-success">Submit</button></p>
 					</label>
 						</div>
 				</form>

@@ -27,7 +27,7 @@
             <ul class="nav">
               <li class="active"><a href="index.php">Home</a></li>
               <li><a href="createAccount.php">Create Account</a></li>
-              <li><a href="passwordRecovery.php">Forogot Password</a></li>
+              <li><a href="passwordRecovery.php">Forgot Password</a></li>
             </ul>
 			  <form action ="loading.php" method = "post" class="navbar-form pull-right">
               <input class="span2" type="text" name="user" placeholder="Username">

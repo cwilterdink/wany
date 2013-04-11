@@ -37,7 +37,7 @@
 	<div class="container">
 		<h1>Create Your WANY Account</h1>
 
-		<form name="input" action="confirmaccount.php" method="get">
+		<form name="input" action="ses.php" method="POST">
 			<label>First name</label>
 			<input type="text" name="firstname">
 			<label>Last name</label>

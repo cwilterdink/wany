@@ -30,7 +30,7 @@
           <a class="brand" href="index.php">WANY</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="index.php">Home</a></li>
+              <li class="active"><a href="homepage.php">Home</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="index.php">Logout</a></li>
             </ul>

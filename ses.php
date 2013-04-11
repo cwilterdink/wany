@@ -1,24 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>WANY</title>
+<html lang="en">
 
-        <link rel="stylesheet" type="text/css" media="all" href="main.css" />
-    </head>
+<head>
+	<title>WANY</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
+  <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+	 
+	</style>
+ </head>
 
-    <body>
+<body>
+		<div class="navbar navbar-fixed-top">
+		  <div class="navbar-inner">
+			<div class="container">
+			  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="brand" href="index.php">WANY</a>
+			  <div class="nav-collapse collapse">
+				<ul class="nav">
+				  <li class="active"><a href="homepage.php">Home</a></li>
+				  <li><a href="#">Settings</a></li>
+				  <li><a href="index.php">Logout</a></li>
+				</ul>
 
+			  </div><!--/.nav-collapse -->
+			</div>
+		  </div>
+		</div><!--/.navbar-->
+		
+		<div class="container">
+		<div class="hero-unit">
         <?php
 
             // Enable full-blown error reporting. http://twitter.com/rasmus/status/7448448829
             error_reporting(-1);
 
             // Set plain text headers
-            header("Content-type: text/plain; charset=utf-8");
+          //  header("Content-type: text/plain; charset=utf-8");
 
             // Include the SDK
-            require_once './sdk.class.php';
+            include 'sdk.class.php';
 
             /*%******************************************************************************************%*/
 
@@ -37,12 +67,12 @@
             $pw2 = $_POST["reenter"];
 
             if($pw1 !== $pw2) {
-                echo 'The two password entries do not match.<br>';
-                echo '<a href="createAccount.php">Go back</a>';
+                echo '<h3>The two password entries do not match.</h3><br>';
+                echo '<br><a href="createAccount.php" class="btn btn-warning btn-large">Go Back</a>';
             }
             else {
                 echo 'Thank you for signing up! A confirmation email has been sent to you.<br>';
-                echo '<a href="index.php">Home</a>';
+                echo '<br><a href="index.php" class="btn btn-success btn-large">Return Home</a>';
 
                 $autoSubject = "Hello from WANY!";
                 $autoBody = "Greetings ";// . $fname . ' ' . $lname . ', from WANY!';
@@ -61,6 +91,7 @@
 
             }
         ?>
-
-    </body>
+	</div>
+	</div>
+ </body>
 </html>

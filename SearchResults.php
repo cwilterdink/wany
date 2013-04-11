@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>WANY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-<?php
-// does not create database, 
+  <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+  </head>
+
+  
+  <body>
+  
+  
+	<?php
+	// does not create database, 
 
     $search = $_POST["search"];
     //Call database to search for this variable
   
 	
 	//may not work for everyone. Put credentials getter here
-	require_once dirname(dirname(__FILE__)) . '..\awstest\sdk.class.php';
+	include 'sdk.class.php';
 
 	$dynamodb = new AmazonDynamoDB();
 	
@@ -29,36 +45,40 @@
 			)
 		) 
 	)); 
-	
- 
+	print ($search);
+	echo "accessing dynamo";
 	
   ?>
 
+ 	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.php">WANY</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.php">Home</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="index.php">Logout</a></li>
+            </ul>
 
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="#">Username</a>
-      <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div><!--/.navbar-->
 
-  <body>
-    <h3><img src="" alt="logo">WANY
-
-  <form action="SearchResults.php" method="post">
-    Search: <input type="text" name="search"><br>
-    <input type="submit" value="Submit"><br>
-  </form>
   
-</h3>
-
-  
-
-<?php foreach ($response->body->Items as $value) : ?>
+	<div class="container">
+	
+	
+	
+	
+	
+	<?php foreach ($response->body->Items as $value) : ?>
 	<ul>
 		<li> <?php echo (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ?>
 			<ul>
@@ -67,9 +87,9 @@
 			</ul>
 		</li>
 	</ul>
-<?php endforeach; ?>				
+	<?php endforeach; ?>				
+	</div> <!--/.container-->
 
-
-
+</body>
 
 </html>

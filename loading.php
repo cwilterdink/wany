@@ -33,19 +33,22 @@ $scanresponse = $dynamodb->scan(array(
     )
 ));
 
-if ($scanresponse->isOK()){
+if ($scanresponse->isOK())
+{
 	$temppass = (string) $scanresponse->body->Items->password->{AmazonDynamoDB::TYPE_STRING};
 	if ($temppass == $value)
 	{
+		session_start();
+		$_SESSION['user'] = $name;
 		header('Location: homepage.php');
-}
+	}
 
-	}
-	else
-	{
-		header('Location: index.php');
-	}
+}
+else
+{
+	header('Location: index.php');
+}
 	
-//} one brace too many
- 
+
+
 ?>

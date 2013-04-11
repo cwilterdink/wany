@@ -29,9 +29,9 @@
               <li><a href="createAccount.php">Create Account</a></li>
               <li><a href="passwordRecovery.php">Forogot Password</a></li>
             </ul>
-			  <form action ="loading.php" class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="user">
-              <input class="span2" type="password" placeholder="pword">
+			  <form action ="loading.php" method = "post" class="navbar-form pull-right">
+              <input class="span2" type="text" name="user" placeholder="user">
+              <input class="span2" type="password" name="pword" placeholder="pword">
               <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
           </div><!--/.nav-collapse -->

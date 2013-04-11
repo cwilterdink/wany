@@ -46,6 +46,6 @@ if ($scanresponse->isOK()){
 		header('Location: index.php');
 	}
 	
-}
-
+//} one brace too many
+ 
 ?>

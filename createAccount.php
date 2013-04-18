@@ -28,7 +28,7 @@
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
               <li class = "active"><a href="createAccount.php">Create Account</a></li>
-              <li><a href="passwordRecovery.php">Forogot Password</a></li>
+              <li><a href="passwordRecovery.php">Forgot Password</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

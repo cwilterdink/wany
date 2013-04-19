@@ -36,16 +36,31 @@ if(!isset($_SESSION['user']))
           <a class="brand" href="homepage.php">WANY</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="homepage.php">Home</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="logout.php">Logout</a>
-			  </li>
+              <li class="active"><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><a href="#">About</a></li>
             </ul>
+			<ul class=" nav pull-right dropdown">	
+			
+				<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-user icon-white"></i> <?php echo (string) $_SESSION['user']?>
+							<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="icon-wrench"></i> User Settings</a></li>
+								<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+								<li class="divider"></li>
+								<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
+							</ul>
+						</li>
+
+			</ul><!--/dropdown-->
 
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+	<!----------------------------------------------------------------------------->
 
 	<div class="container-fluid">
 	
@@ -100,7 +115,21 @@ if(!isset($_SESSION['user']))
 
 
 	</div><!--/ .container-->
-  
-  
+  <!--  javascript -->
+  <script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
 </body>   
 </html>

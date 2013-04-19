@@ -1,5 +1,15 @@
 <!DOCTYPE html>
+
 <html>
+
+<?php
+session_start();
+session_regenerate_id();
+if(!isset($_SESSION['user']))
+{	
+	header('Location: index.php');
+}
+?>
   <head>
     <title>WANY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,17 +40,32 @@
           <a class="brand" href="homepage.php">WANY</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="homepage.php">Home</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="homepage.php">Logout</a></li>
+              <li class="active"><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><a href="#">About</a></li>
             </ul>
+			<ul class=" nav pull-right dropdown">	
+			
+				<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-user icon-white"></i> <?php echo (string) $_SESSION['user']?>
+							<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="icon-wrench"></i> User Settings</a></li>
+								<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+								<li class="divider"></li>
+								<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
+							</ul>
+						</li>
+
+			</ul><!--/dropdown-->
 
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div><!--/.navbar-->
+    </div>
 
-  
+  <!----------------------------------------------------------------------------------------->
 	<div class="container">
 	
 	<?php
@@ -115,24 +140,52 @@
 		
 		
 <!-------------------------------------------------------------------------------------------------->
-	
+		</div><!--/hero-->
 	<?php foreach ($response->body->Items as $value) : ?>
-	<ul>
-		<li> <?php echo (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ?>
-			<ul>
-			<li> <?php echo "Price: " ?> <?php echo "$" ?> <?php echo (string) $value->Price->{AmazonDynamoDB::TYPE_NUMBER} ?> 
-			<li> <?php echo "Activity Type: " ?> <?php echo (string) $value->Type->{AmazonDynamoDB::TYPE_STRING} ?>
-			</ul>
-		</li>
-	</ul>
+	<table class="table"  style="border-top: none">
+			<thead class="well">
+			<tr>
+				<th><?php echo (string) $value->Name->{AmazonDynamoDB::TYPE_STRING} ?>
+				<button type="button" class="btn pull-right" data-toggle="button"><i class="icon-heart"></i></button></th>
+			</tr>
+			</thead>
+			<tbody class="well" style="background:#FFF">
+				<tr>
+					<th> <?php echo "Price: " ?> <?php echo "$" ?> <?php echo (string) $value->Price->{AmazonDynamoDB::TYPE_NUMBER} ?> </th>
+				</tr>
+				<tr>
+					<th> <?php echo "Activity Type: " ?> <?php echo (string) $value->Type->{AmazonDynamoDB::TYPE_STRING} ?></th>
+				</tr>
+			</tbody>
+	</table>
 	<?php endforeach; ?>					
 
 
-	</div><!--/hero-->
+
 	</div><!--/span-->
 	
 	</div> <!--/.container-->
+	
+	<!--javascript -->
+	
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
 
 </body>
+
+
 
 </html>

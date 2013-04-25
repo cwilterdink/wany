@@ -23,7 +23,7 @@ $passcheck = $_POST["reenter"];
 //We check to make sure the passwords match
 if ($pass == $passcheck)
 {
-	$usename = $first . $last . $email;
+	$usename = $first . $last . $email; // Shouldnt this just be email?
 	echo $usename;
 	//from here we need to compare to the dynamo table of accounts and passwords
 	$scanresponse = $dynamodb->scan(array(
@@ -43,8 +43,8 @@ if ($pass == $passcheck)
 	{
 		//If there is no user of that name, we create him as a regular user
 		$queue = new CFBatchRequest();
-
-
+		
+		//TO DO: make email username, add names in other fields. verfied = 0;
 		$dynamodb->batch($queue)->put_item(array(
 		'TableName' => 'userlist',
 		'Item' => $dynamodb->attributes(array(
@@ -73,4 +73,34 @@ else
 {
 	header('Location: createAccount.php');
 }
+
+/* EVERYTHING AFTER THIS POINT IS FOR ONCE EVERYTHING ABOVE IS COPIED INTO SES.php
+
+	MAGIC. DO NOT TOUCH.
+	
+	$secret = "aag25%#!noa@1f";
+	$email = $_GET["email"];
+	$hash = $_GET["hash"];
+	
+	if (md5($email.$secret) == $hash) {
+		
+		$dynamodb = new AmazonDynamoDB();
+		
+		$scanresponse = $dynamodb->scan(array(
+		'TableName'    => 'userlist',
+		'ScanFilter'      => array(
+			'user' => array(
+				'ComparisonOperator' => AmazonDynamoDB::CONDITION_EQUAL,
+				'AttributeValueList' => array(
+					array( AmazonDynamoDB::TYPE_STRING => $usename )
+					)
+				),
+			)
+		));
+		
+		TODO: find username(email) then update that entry to verfied (0 - > 1)
+	}
+	
+*/	
 ?>
+

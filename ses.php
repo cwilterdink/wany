@@ -65,6 +65,10 @@
             $destEmailAddress = $_POST["email"];
             $pw1 = $_POST["password"];
             $pw2 = $_POST["reenter"];
+            $secret = "aag25%#!noa@1f";
+	    $email = urlencode($_POST['email']);
+	    $hash = MD5($_POST['email'].$secret);
+	    $link = "http://ec2-54-234-109-54.compute-1.amazonaws.com/wany-master/confirmaccount.php?email=$email&hash=$hash";
 
             if($pw1 !== $pw2) {
                 echo '<h3>The two password entries do not match.</h3><br>';
@@ -73,9 +77,14 @@
             else {
                 echo 'Thank you for signing up! A confirmation email has been sent to you.<br>';
                 echo '<br><a href="index.php" class="btn btn-success btn-large">Return Home</a>';
-
+		
+		// IMPT: Copy paste most of connors code  in confirm account here to make an account in his table here
+		// credentials still need to be fixed here and IAM aswell probably
+		// add field to existing code setting account to unverified or 0, and 1 for active
+		
+		
                 $autoSubject = "Hello from WANY!";
-                $autoBody = "Greetings ";// . $fname . ' ' . $lname . ', from WANY!';
+     		$autoBody = "Greetings " . $fname . ' ' . $lname . ', from WANY!<br/> ' . "Your Verification Link is : " . $link ;
 
 
                 $emailsend = $amazonSes->send_email(

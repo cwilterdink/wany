@@ -126,8 +126,8 @@
 					'password' => $pass,
 					'access' => "user",
 					'verified' => 0,
-					'Fname' => $first
-					'Lname' => $last;
+					'Fname' => $first,
+					'Lname' => $last
 					))
 					));
 					

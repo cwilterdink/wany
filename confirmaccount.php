@@ -21,6 +21,8 @@
 	$hash = $_GET["hash"];
 	
 	if (md5($email.$secret) == $hash) {
+
+		$dynamodb = new AmazonDynamoDB();
 		
 	$response = $dynamodb->update_item(array(
     		'TableName' => 'userlist',
@@ -31,10 +33,18 @@
     			'AttributeUpdates' => array(
         			'verified' => array(
             				'Action' => AmazonDynamoDB::ACTION_PUT,
-           					 'Value'  => array(AmazonDynamoDB::TYPE_NUMBER => 1)
+           					 'Value'  => array(AmazonDynamoDB::TYPE_STRING => "1")
         ))));
 		
 		
+	}
+	if ($response->isOK())
+	{
+		echo 'updating the itme' . PHP_EOL;
+	}
+	else
+	{
+		print_r($response);
 	}
 	
 	

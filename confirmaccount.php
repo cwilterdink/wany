@@ -22,22 +22,19 @@
 	
 	if (md5($email.$secret) == $hash) {
 		
-		$dynamodb = new AmazonDynamoDB();
-		$response = $dynamodb->update_item(array(
-		    'TableName' => $table_name,
-		    'Key' => $dynamodb->attributes(array(
-		        'HashKeyElement'  => $email, // "id" column
-		    )),
-		    'AttributeUpdates' => array(
-		        'verified' => array(
-		            'Action' => AmazonDynamoDB::ACTION_PUT,
-		            'Value'  => array(AmazonDynamoDB::TYPE_STRING => 1)
-		        ),
-
-		));		
+	$response = $dynamodb->update_item(array(
+    		'TableName' => 'userlist',
+    		'Key' => $dynamodb->attributes(array(
+        	'HashKeyElement'  => $email, 
+        //	'RangeKeyElement' => $current_time, 
+   		 )),
+    			'AttributeUpdates' => array(
+        			'verified' => array(
+            				'Action' => AmazonDynamoDB::ACTION_PUT,
+           					 'Value'  => array(AmazonDynamoDB::TYPE_NUMBER => 1)
+        ))));
 		
 		
-		TODO: find username(email) then update that entry to verfied (0 - > 1)
 	}
 	
 	

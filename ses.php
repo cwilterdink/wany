@@ -131,6 +131,8 @@
 					))
 					));
 					
+					$responses = $dynamodb->batch($queue)->send();
+	
 					
 					
 					

@@ -66,16 +66,16 @@
             $pw1 = $_POST["password"];
             $pw2 = $_POST["reenter"];
             $secret = "aag25%#!noa@1f";
-			$email = urlencode($_POST['email']);
-			$hash = MD5($_POST['email'].$secret);
-			$link = "http://ec2-54-234-109-54.compute-1.amazonaws.com/wany-master/confirmaccount.php?email=$email&hash=$hash";
+            $email = urlencode($_POST['email']);
+            $hash = MD5($_POST['email'].$secret);
+            $link = "http://ec2-54-234-109-54.compute-1.amazonaws.com/wany-master/confirmaccount.php?email=$email&hash=$hash";
 
             if($pw1 != $pw2) {
                 echo '<h3>The two password entries do not match.</h3><br>';
                 echo '<br><a href="createAccount.php" class="btn btn-warning btn-large">Go Back</a>';
             }
             if($pw1 == $pw2)
-			{
+            {
                
 // IMPT: Copy paste most of connors code in confirm account here to make an account in his table here
 // credentials still need to be fixed here and IAM aswell probably
@@ -83,80 +83,80 @@
 
 
                 $autoSubject = "Hello from WANY!";
-				$autoBody = "Greetings " . $fname . ' ' . $lname . ', from WANY!<br/> ' . "Your Verification Link is : " . $link ;
-				
-				$dynamodb = new AmazonDynamoDB();
+                $autoBody = "Greetings " . $fname . ' ' . $lname . ', from WANY!<br/> ' . "Your Verification Link is : " . $link ;
+                
+                $dynamodb = new AmazonDynamoDB();
 
-				$tablename = 'userlist';
-				$first = $_POST["firstname"];
-				$last = $_POST["lastname"];
-				$email = $_POST["email"];
-				$pass = $_POST["password"];
-				$passcheck = $_POST["reenter"];
+                $tablename = 'userlist';
+                $first = $_POST["firstname"];
+                $last = $_POST["lastname"];
+                $email = $_POST["email"];
+                $pass = $_POST["password"];
+                $passcheck = $_POST["reenter"];
 
-				//We check to make sure the passwords match
-	
-				$usename = $email; // Shouldnt this just be email?
-			
-				//from here we need to compare to the dynamo table of accounts and passwords
-				$scanresponse = $dynamodb->scan(array(
-				'TableName' => 'userlist',
-				'ScanFilter' => array(
-				'user' => array(
-				'ComparisonOperator' => AmazonDynamoDB::CONDITION_EQUAL,
-				'AttributeValueList' => array(
-				array( AmazonDynamoDB::TYPE_STRING => $usename )
-				)
-				),
-				)
-				));
-				
-				
-				//We check to see if a user already exists in the system
-				$usercheck = (string) $scanresponse->body->Items->user->{AmazonDynamoDB::TYPE_STRING};
-				if ($usercheck != $usename)
-				{
-					//If there is no user of that name, we create him as a regular user
-					$queue = new CFBatchRequest();
+                //We check to make sure the passwords match
+    
+                $usename = $email; // Shouldnt this just be email?
+            
+                //from here we need to compare to the dynamo table of accounts and passwords
+                $scanresponse = $dynamodb->scan(array(
+                'TableName' => 'userlist',
+                'ScanFilter' => array(
+                'user' => array(
+                'ComparisonOperator' => AmazonDynamoDB::CONDITION_EQUAL,
+                'AttributeValueList' => array(
+                array( AmazonDynamoDB::TYPE_STRING => $usename )
+                )
+                ),
+                )
+                ));
+                
+                
+                //We check to see if a user already exists in the system
+                $usercheck = (string) $scanresponse->body->Items->user->{AmazonDynamoDB::TYPE_STRING};
+                if ($usercheck != $usename)
+                {
+                    //If there is no user of that name, we create him as a regular user
+                    $queue = new CFBatchRequest();
 
-					$dynamodb->batch($queue)->put_item(array(
-					'TableName' => 'userlist',
-					'Item' => $dynamodb->attributes(array(
-					'user' => $usename, // Primary (Hash) Key
-					'password' => $pass,
-					'access' => "user",
-					'verified' => 0,
-					'Fname' => $first,
-					'Lname' => $last
-					))
-					));
-					
-					$responses = $dynamodb->batch($queue)->send();
-	
-					
-					
-					
-					$emailsend = $amazonSes->send_email(
-					$sourceEmail, // Source (aka From)
-						array('ToAddresses' => array( // Destination (aka To)
-							$destEmailAddress
-						)),
-						array( // Message (short form)
-							'Subject.Data' => $autoSubject,
-							'Body.Text.Data' => $autoBody
-						)
-					);
-					echo 'Thank you for signing up! A confirmation email has been sent to you.<br>';
-					echo '<br><a href="index.php" class="btn btn-success btn-large">Return Home</a>';
+                    $dynamodb->batch($queue)->put_item(array(
+                    'TableName' => 'userlist',
+                    'Item' => $dynamodb->attributes(array(
+                    'user' => $usename, // Primary (Hash) Key
+                    'password' => $pass,
+                    'access' => "user",
+                    'verified' => "0",
+                    'Fname' => $first,
+                    'Lname' => $last
+                    ))
+                    ));
+                    
+                    $responses = $dynamodb->batch($queue)->send();
+    
+                    
+                    
+                    
+                    $emailsend = $amazonSes->send_email(
+                    $sourceEmail, // Source (aka From)
+                        array('ToAddresses' => array( // Destination (aka To)
+                            $destEmailAddress
+                        )),
+                        array( // Message (short form)
+                            'Subject.Data' => $autoSubject,
+                            'Body.Text.Data' => $autoBody
+                        )
+                    );
+                    echo 'Thank you for signing up! A confirmation email has been sent to you.<br>';
+                    echo '<br><a href="index.php" class="btn btn-success btn-large">Return Home</a>';
 
-				}
-				else
-				{
-					echo '<h3>This email is already in use.</h3><br>';
-					echo '<br><a href="createAccount.php" class="btn btn-warning btn-large">Go Back</a>';
-				}
-			}	
-				
+                }
+                else
+                {
+                    echo '<h3>This email is already in use.</h3><br>';
+                    echo '<br><a href="createAccount.php" class="btn btn-warning btn-large">Go Back</a>';
+                }
+            }   
+                
         ?>
 </div>
 </div>

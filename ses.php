@@ -127,7 +127,8 @@
                     'access' => "user",
                     'verified' => "0",
                     'Fname' => $first,
-                    'Lname' => $last
+                    'Lname' => $last,
+    				'favorites' => ""
                     ))
                     ));
                     

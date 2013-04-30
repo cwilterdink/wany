@@ -30,7 +30,7 @@
               <li><a href="passwordRecovery.php">Forgot Password</a></li>
             </ul>
 			  <form action ="loading.php" method = "post" class="navbar-form pull-right">
-              <input class="span2" type="text" name="user" placeholder="Username">
+              <input class="span2" type="text" name="user" placeholder="Email">
               <input class="span2" type="password" name="pword" placeholder="Password">
               <button type="submit" class="btn btn-primary">Sign in</button>
             </form>

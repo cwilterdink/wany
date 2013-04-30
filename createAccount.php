@@ -6,16 +6,24 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-	<style>
+<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
+	#passwordAlert{
+		color: red;
+		margin:5px;
+		display:none;
+		text-align:center;
+		background-color:#F5F5F5;
+		padding:5px;
+	}
     </style>
  </head>
 
 
 <body>
-	<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -28,35 +36,61 @@
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
               <li class = "active"><a href="createAccount.php">Create Account</a></li>
-              <li><a href="passwordRecovery.php">Forgot Password</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-	<div class="container">
-		<h1>Create Your WANY Account</h1>
+<li><a href="passwordRecovery.php">Forgot Password</a></li>
+</ul>
+</div><!--/.nav-collapse -->
+</div>
+</div>
+</div>
+<script>
+function chkpassword() {
 
-		<form name="input" action="ses.php" method="POST">
-			<label>First name</label>
-			<input type="text" name="firstname">
-			<label>Last name</label>
-			<input type="text" name="lastname">
-			<label>Email</label> 
-			<input type="text" name="email">
-			<label>Password</label>
-			<input type="password" name="password">
-			<label>Re-enter Password</label>
-			<input type="password" name="reenter">
-			<br>
-			<button type="submit" class="btn btn-success">Submit</button>
-		</form>
+        var p1 = document.getElementById("pw1").value;
+        var p2 = document.getElementById("pw2").value;
 
-	</div>
+     
+            document.getElementById("passwordAlert").style.display = 'none';
 
-	<!------------------------------------------------------------------------->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	
+            if(p1===p2)
+			{
+                document.getElementById("passwordAlert").style.display = 'none';
+
+            } else 
+			{
+
+                document.getElementById("passwordAlert").style.display = 'block';
+                document.getElementById("passwordAlert").innerHTML = " Both passwords must match.";
+            }
+
+         
+
+}
+</script>
+
+
+
+<div class="container">
+<h1>Create Your WANY Account</h1>
+<form name="input" action="ses.php" method="POST">
+<label>First name</label>
+<input type="text" name="firstname">
+<label>Last name</label>
+<input type="text" name="lastname">
+<label>Email</label>
+<input type="text" name="email">
+<label>Password</label>
+<input type="password" name="password" id = "pw1">
+<label>Re-enter Password</label>
+<input type="password" name="reenter" id = "pw2" onkeyup ="chkpassword()">
+
+<br>
+<button type="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+<div id="passwordAlert"></div>
+
+<!------------------------------------------------------------------------->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

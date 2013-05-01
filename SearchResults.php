@@ -51,7 +51,7 @@ if(!isset($_SESSION['user']))
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="icon-wrench"></i> User Settings</a></li>
+								<li><a href="settings.php"><i class="icon-wrench"></i> User Settings</a></li>
 								<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
 								<li class="divider"></li>
 								<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>

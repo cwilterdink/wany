@@ -28,7 +28,7 @@
 <div class="nav-collapse collapse">
 <ul class="nav">
 <li class="active"><a href="homepage.php">Home</a></li>
-<li><a href="#">Settings</a></li>
+<li><a href="settings.php">Settings</a></li>
 <li><a href="index.php">Logout</a></li>
 </ul>
 

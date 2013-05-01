@@ -60,53 +60,47 @@ if(!isset($_SESSION['user']))
         </div>
       </div>
     </div>
+	
+	
+	
+	<div class="container-fluid">
+		<div class="span10">
+			 <div class="hero-unit">
+	<!--------------------------------------------------------------------------------->
+			<?php
+				include 'sdk.class.php';
+				
+				$AWS_KEY ='AKIAIFZS3TDJQRB4TEZQ';
+				$AWS_SECRET_KEY ='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';
+				$topic_ARN = 'arn:aws:sns:us-east-1:349573786607:WANYSUBSCRIBE';
+				
+				
+				$sns = new AmazonSNS(array( 'key' => $AWS_KEY, 'secret' => $AWS_SECRET_KEY ));
+				
+				$phoneNum = $_POST['phoneNum'];
+				
+				
+				//creates subscription to SMS
+				$response = $sns->subscribe($topic_ARN, 'sms', $phoneNum, null);
+				
+				
+				if($response->isOK())
+				{
+					echo '<h1> Thanks For Subscribing to WANY!</h1>';
+					echo '<p>A verfication text has been sent to ' . $phoneNum . '</p>';
+					echo '<br><a href="homepage.php" class="btn btn-success btn-large">Return Home</a>';
+				}
+				else
+				{
+					echo '<h1> Sorry, Something Went Wrong </h1>';
+					echo '<p> Please try again. </p>';
+					echo '<br><a href="settings.php" class="btn btn-success btn-large">Go Back</a>';
+				}
+				
+			?>
+				
 	<!----------------------------------------------------------------------------->
 
-	<div class="container-fluid">
-	
-		 <div class="row-fluid">
-			<div class="span2">
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-					<li class="nav-header">User Profile</li>
-
-					<br><br><br><br><br><br><br> <!--potentially profile picture here-->
-					<li class="nav-header">Other</li>
-					<li><a href="#">Link</a></li>
-
-					</ul>
-				</div><!--/.well -->
-			</div><!--/span-->
-		
-		<div class="span10">
-          <div class="hero-unit">
-				<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
-				<div class="control-group">
-					<form action ="SearchResults.php"method="POST">
-				<!--	<label class="control-label" for="password">Budget   -->
-						<div class="controls">
-						<!--	<select class="span2" name="budget" id="budget">
-								<option></option>
-								<option value="01">$0</option>
-								<option value="02">$1</option>
-								<option value="03">$5</option>
-								<option value="04">$10</option>
-								<option value="05">$15</option>
-								<option value="06">$20</option>
-								<option value="07">$25</option>
-								<option value="08">$30</option>
-								<option value="09">$35</option>
-								<option value="10">$40</option>
-								<option value="11">$45</option>
-								<option value="12">$50+</option>
-							</select>
-						-->
-						<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">
-						<button type="submit" class="btn btn-success">Submit</button></p>
-					</label>
-						</div>
-				</form>
-				</div><!--/control-group-->
 			</div><!--/hero-->
 		</div><!--/span-->
 	</div><!--/row-->

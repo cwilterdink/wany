@@ -94,7 +94,7 @@ if(!isset($_SESSION['user']))
 	 
 	 
 	 $response = $dynamodb->scan(array(
-		'TableName' => 'Activities',
+		'TableName' => 'WANY',
 		'ScanFilter' => array(
 			'Price' => array(
 				'ComparisonOperator' => AmazonDynamoDB::CONDITION_LESS_THAN_OR_EQUAL,
@@ -112,7 +112,7 @@ if(!isset($_SESSION['user']))
 				<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
 				<div class="control-group">
 					<form action ="SearchResults.php"method="POST">
-				<!--	<label class="control-label" for="password">Budget   -->
+					<!--<label class="control-label" for="password">Budget --> 
 						<div class="controls">
 						<!--	<select class="span2" name="budget" id="budget">
 								<option></option>
@@ -131,6 +131,7 @@ if(!isset($_SESSION['user']))
 							</select>
 						-->
 						<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">
+					
 						<button type="submit" class="btn btn-success">Submit</button></p>
 					</label>
 						</div>
@@ -149,12 +150,21 @@ if(!isset($_SESSION['user']))
 				<button type="button" class="btn pull-right" data-toggle="button"><i class="icon-heart"></i></button></th>
 			</tr>
 			</thead>
-			<tbody class="well" style="background:#FFF">
+			<tbody class="well" style="background:#FFF; font-size: 8pt">
 				<tr>
-					<th> <?php echo "Price: " ?> <?php echo "$" ?> <?php echo (string) $value->Price->{AmazonDynamoDB::TYPE_NUMBER} ?> </th>
+					<th> <?php echo "Price: " ?> <?php echo (string) $value->LowHigh->{AmazonDynamoDB::TYPE_STRING} ?> </th>
 				</tr>
 				<tr>
-					<th> <?php echo "Activity Type: " ?> <?php echo (string) $value->Type->{AmazonDynamoDB::TYPE_STRING} ?></th>
+					<th> <?php echo "Address: " ?> <?php echo (string) $value->Address->{AmazonDynamoDB::TYPE_STRING} ?></th>
+				</tr>
+				<tr>
+					<th> <?php echo "Phone Number: " ?> <?php echo (string) $value->Phone->{AmazonDynamoDB::TYPE_STRING} ?></th>
+				</tr>
+				<tr>
+					<th> <?php echo "Activity Type: " ?> <?php echo (string) $value->Category->{AmazonDynamoDB::TYPE_STRING} ?></th>
+				</tr>
+				<tr>
+					<th> <?php echo "URL: " ?> <?php echo (string) $value->URL->{AmazonDynamoDB::TYPE_STRING} ?></th>
 				</tr>
 			</tbody>
 	</table>

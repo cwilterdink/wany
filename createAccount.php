@@ -9,15 +9,13 @@
 <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		}
+		#passwordAlert{
+			display:none;
+			text-align:center;
+			margin: 0 auto;
+		}
       }
-	#passwordAlert{
-		color: red;
-		margin:5px;
-		display:none;
-		text-align:center;
-		background-color:#F5F5F5;
-		padding:5px;
-	}
     </style>
  </head>
 
@@ -42,55 +40,84 @@
 </div>
 </div>
 </div>
-<script>
-function chkpassword() {
-
-        var p1 = document.getElementById("pw1").value;
-        var p2 = document.getElementById("pw2").value;
-
-     
-            document.getElementById("passwordAlert").style.display = 'none';
-
-            if(p1===p2)
-			{
-                document.getElementById("passwordAlert").style.display = 'none';
-
-            } else 
-			{
-
-                document.getElementById("passwordAlert").style.display = 'block';
-                document.getElementById("passwordAlert").innerHTML = " Both passwords must match.";
-            }
-
-         
-
-}
-</script>
 
 
 
-<div class="container">
-<h1>Create Your WANY Account</h1>
-<form name="input" action="ses.php" method="POST">
-<label>First name</label>
-<input type="text" name="firstname">
-<label>Last name</label>
-<input type="text" name="lastname">
-<label>Email</label>
-<input type="text" name="email">
-<label>Password</label>
-<input type="password" name="password" id = "pw1">
-<label>Re-enter Password</label>
-<input type="password" name="reenter" id = "pw2" onkeyup ="chkpassword()">
 
-<br>
-<button type="submit" class="btn btn-success">Submit</button>
-</form>
-</div>
-<div id="passwordAlert"></div>
+	<div class="container">
+		<h1>Create Your WANY Account</h1>
+		<form name="input" action="ses.php" method="POST">
+			<label>First name</label>
+			<input type="text" name="firstname">
+			<label>Last name</label>
+			<input type="text" name="lastname">
+			<label>Email</label>
+			<input type="text" name="email">
+			<label>Password</label>
+			<input type="password" name="password" id = "pw1">
+			<label>Re-enter Password</label>
+			<input type="password" name="reenter" id = "pw2" onkeyup ="chkpassword()">
 
-<!------------------------------------------------------------------------->
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+			<br>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</div>
+	
+	
+	<!------------------------------ALERT-------------------------------------------------->
+
+	<div id="passwordAlert">
+		
+		<div class="alert fade in alert-block alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>WARNING!</strong> Both Passwords Must Match.<br>
+		</div>
+		
+	</div>
+
+
+
+<!-------------SCRIPTS!!:D------------------------------------------------------------>
+
+
+	<script>
+	function chkpassword() {
+
+			var p1 = document.getElementById("pw1").value;
+			var p2 = document.getElementById("pw2").value;
+
+		 
+				document.getElementById("passwordAlert").style.display = 'none';
+
+				if(p1===p2)
+				{
+					document.getElementById("passwordAlert").style.display = 'none';
+
+				} else 
+				{
+					document.getElementById("passwordAlert").style.display = 'block';
+			
+				}
+
+			 
+
+	}
+	</script>
+
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
 </body>
 </html>

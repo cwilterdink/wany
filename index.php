@@ -46,13 +46,29 @@
 			<p><a href="createAccount.php" class="btn btn-primary btn-large">Sign Up Now! &raquo;</a></p>
 			<p>Enjoy life without breaking the bank.</p>
 		</div>
-
-    </div> <!-- /container -->
+	<div class="footer">
+      <div class="container">
+		<hr>
+        <p>&copy; WANY 2013</p>
+      </div>
+    </div>
 
 
 
 	<!------------------------------------------------------------------------->
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
   </body>
 </html>

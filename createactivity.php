@@ -47,7 +47,7 @@
 				<ul class=" nav pull-right dropdown">	
 				
 					<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<a href="favorites.php" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="icon-user icon-white"></i> <?php echo (string) $_SESSION['user']?>
 								<b class="caret"></b>
 								</a>

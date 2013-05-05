@@ -49,7 +49,7 @@ padding-top: 60px; /* 60px to make the container go all the way to the bottom of
 </a>
 <ul class="dropdown-menu">
 <li><a href="settings.php"><i class="icon-wrench"></i> User Settings</a></li>
-<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+<li><a href="favorites.php"><i class="icon-heart"></i> My Favorites</a></li>
 <li class="divider"></li>
 <li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
 </ul>

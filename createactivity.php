@@ -47,13 +47,13 @@
 				<ul class=" nav pull-right dropdown">	
 				
 					<li class="dropdown">
-								<a href="favorites.php" class="dropdown-toggle" data-toggle="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="icon-user icon-white"></i> <?php echo (string) $_SESSION['user']?>
 								<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="settings.php"><i class="icon-wrench"></i> User Settings</a></li>
-									<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+									<li><a href="favorites.php"><i class="icon-heart"></i> My Favorites</a></li>
 									<li class="divider"></li>
 									<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
 								</ul>

@@ -80,7 +80,7 @@ if(!isset($_SESSION['user']))
 					<li class="nav-header">Links</li>
 					<li><a href="settings.php">User Settings</a></li>
 					<li><a href="favorites.php">My Favorites</a></li>
-					<li><a href="createactivity.php.php">Submit Activity</a></li>
+					<li><a href="createactivity.php">Submit Activity</a></li>
 
 					</ul>
 				</div><!--/.well -->

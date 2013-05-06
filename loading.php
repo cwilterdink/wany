@@ -41,10 +41,12 @@ if ($scanresponse->isOK())
 	}
 	$temppass = (string) $scanresponse->body->Items->password->{AmazonDynamoDB::TYPE_STRING};
 	$verifiedStatus = (string) $scanresponse->body->Items->verified->{AmazonDynamoDB::TYPE_STRING};
+	$adminStatus = (string) $scanresponse->body->Items->admin->{AmazonDynamoDB::TYPE_STRING};
 	if ($temppass == $value && $verifiedStatus == "1")
 	{
 		session_start();
 		$_SESSION['user'] = $name;
+		$_SESSION['admin'] = $adminStatus;
 		header('Location: homepage.php');
 	}
 	else

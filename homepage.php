@@ -39,6 +39,11 @@ if(!isset($_SESSION['user']))
               <li class="active"><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="createactivity.php"> Submit Activity</a></li>
               <li><a href="#">About</a></li>
+              <?php if(	$_SESSION['admin']== "yes")
+              {
+              	echo '<li><a href="activityverify.php">Verify Activity </a></li>'
+              }
+              ?>
             </ul>
 			<ul class=" nav pull-right dropdown">	
 			

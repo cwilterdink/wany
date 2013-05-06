@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-  <html>
+	<html>
 
 	<?php
 	session_start();
@@ -121,8 +121,14 @@
 				<input type = "submit" name = "update" value = "Update" />
 				<input type = "submit" name = "delete" value = "Delete" />';
 
+				
+
 				if (isset($_POST['update'])) 
 				{
+					$index = $_POST['index'];
+					$price = $_POST['price'];
+
+					echo $index . $price;
    					$dynamodb = new AmazonDynamoDB(array('key' => $AWS_KEY,
                                              'secret' => $AWS_SECRET_KEY));
    					$queue = new CFBatchRequest();
@@ -136,16 +142,16 @@
                     'Phone' => $phone,
                     'Category' => $activity,
                     'URL' => $url,
-    				'Index' => $_POST['index'],
-    				'Price' => $_POST['price']
+    				'Index' => (int)$index,
+    				'Price' => (int)$price
                     ))
                     ));
                     
                     $responses = $dynamodb->batch($queue)->send();
 
-                    //$res = $sqs->delete_message($queueurl, $receipt);
+                    $res = $sqs->delete_message($queueurl, $receipt);
 
-                    //header('Location: verifysuccess.php');
+                    header('Location: verifysuccess.php');
    				} 
 				else if (isset($_POST['delete'])) 
 				{

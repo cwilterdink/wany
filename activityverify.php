@@ -9,7 +9,7 @@
 	{	
 		header('Location: index.php');
 	}
-	if(isset($_SESSION['admin'])
+	if(isset($_SESSION['admin']))
 	{
 		if($_SESSION['admin'] == "no")
 		{	

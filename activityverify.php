@@ -9,6 +9,17 @@
 	{	
 		header('Location: index.php');
 	}
+	if(isset($_SESSION['admin'])
+	{
+		if($_SESSION['admin'] == "no")
+		{	
+			header('Location: index.php');	
+		}
+	}
+	else
+	{	
+		header('Location: index.php');		
+	}
 	?>  
 	<head>
 	    <title>WANY</title>

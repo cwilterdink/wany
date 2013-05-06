@@ -48,7 +48,7 @@ if(!isset($_SESSION['user']))
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="settings.php"><i class="icon-wrench"></i> User Settings</a></li>
-								<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+								<li><a href="favorites.php"><i class="icon-heart"></i> My Favorites</a></li>
 								<li class="divider"></li>
 								<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
 							</ul>
@@ -66,29 +66,71 @@ if(!isset($_SESSION['user']))
 	<div class="container-fluid">
 		<div class="span10">
 			 <div class="hero-unit">
-	<!--------------------------------------------------------------------------------->
+	<!--****************************************************************************
+					Creates SNS Topic and Subscribes User to SMS 
+	************************************************************************************-->
 			<?php
 				include 'sdk.class.php';
 				
 				$AWS_KEY ='AKIAIFZS3TDJQRB4TEZQ';
 				$AWS_SECRET_KEY ='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';
-				$topic_ARN = 'arn:aws:sns:us-east-1:349573786607:WANYSUBSCRIBE';
+				$topic_ARN_WANY = 'arn:aws:sns:us-east-1:349573786607:';
+				$userName = $_SESSION['user'];
 				
 				
 				$sns = new AmazonSNS(array( 'key' => $AWS_KEY, 'secret' => $AWS_SECRET_KEY ));
 				
 				$phoneNum = $_POST['phoneNum'];
 				
+				//Sets Topic Name Using User phonenumber
+				$response1 = $sns->create_topic((string)$phoneNum);
+				
+				$topic_ARN_user = (string)($topic_ARN_WANY . $phoneNum);
+				
+				//Sets Topic Display Name
+				$response2 = $sns->set_topic_attributes(
+					$topic_ARN_user,
+					'DisplayName',
+					'WANY');
 				
 				//creates subscription to SMS
-				$response = $sns->subscribe($topic_ARN, 'sms', $phoneNum, null);
+				$response3 = $sns->subscribe($topic_ARN_user, 'sms', $phoneNum, null);
 				
+			
+			
+			//*********************************************************************************
+			//--------------- Outputs Success of Topic Creation/Subscription-------------------
+			//**********************************************************************************
 				
-				if($response->isOK())
+				if($response3->isOK())
 				{
 					echo '<h1> Thanks For Subscribing to WANY!</h1>';
 					echo '<p>A verfication text has been sent to ' . $phoneNum . '</p>';
 					echo '<br><a href="homepage.php" class="btn btn-success btn-large">Return Home</a>';
+					//***************************************************
+					// Adds User Phone Number to Database
+					//***************************************************
+					$dynamodb = new AmazonDynamoDB();
+					$response = $dynamodb->update_item(array(
+						'TableName' => 'userlist',
+						'Key' => $dynamodb->attributes(array(
+							'HashKeyElement'  => $userName, 
+						)),
+						'AttributeUpdates' => array(
+							'Phone' => array(
+								'Action' => AmazonDynamoDB::ACTION_PUT,
+								'Value'  => array(AmazonDynamoDB::TYPE_STRING => $phoneNum)
+
+							),
+							'sns' => array(
+								'Action' => AmazonDynamoDB::ACTION_PUT,
+								'Value'  => array(AmazonDynamoDB::TYPE_STRING => '1')
+							)
+						)
+					));
+					//********************************************************
+
+					
 				}
 				else
 				{
@@ -97,18 +139,18 @@ if(!isset($_SESSION['user']))
 					echo '<br><a href="settings.php" class="btn btn-success btn-large">Go Back</a>';
 				}
 				
+			//*************************************************************************************
 			?>
 				
-	<!----------------------------------------------------------------------------->
+	<!--**********************************************************************************************-->
 
 			</div><!--/hero-->
 		</div><!--/span-->
 	</div><!--/row-->
 		
-
-
-
 	</div><!--/ .container-->
+	
+	
   <!--  javascript -->
   <script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

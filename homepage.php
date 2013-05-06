@@ -71,45 +71,47 @@ if(!isset($_SESSION['user']))
 	<div class="container-fluid">
 	
 		 <div class="row-fluid">
-			<div class="span2">
+			<div class="span3">
 				<div class="well sidebar-nav">
 					<ul class="nav nav-list">
-					<li class="nav-header">User Profile</li>
+					<li class="nav-header"><i class="icon-user"></i> <?php echo (string) $_SESSION['user']?></li>
 
-					<br><br><br><br><br><br><br> <!--potentially profile picture here-->
-					<li class="nav-header">Other</li>
-					<li><a href="#">Link</a></li>
+					<br><br><br><br><br><br> <!--potentially profile picture here-->
+					<li class="nav-header">Links</li>
+					<li><a href="settings.php">User Settings</a></li>
+					<li><a href="favorites.php">My Favorites</a></li>
+					<li><a href="createactivity.php.php">Submit Activity</a></li>
 
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
 		
-		<div class="span10">
+		<div class="span9">
           <div class="hero-unit">
 				<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
 				<div class="control-group">
 					<form action ="SearchResults.php"method="POST">
-				<!--	<label class="control-label" for="password">Budget   -->
+					
 						<div class="controls">
-						<!--	<select class="span2" name="budget" id="budget">
-								<option></option>
-								<option value="01">$0</option>
-								<option value="02">$1</option>
-								<option value="03">$5</option>
-								<option value="04">$10</option>
-								<option value="05">$15</option>
-								<option value="06">$20</option>
-								<option value="07">$25</option>
-								<option value="08">$30</option>
-								<option value="09">$35</option>
-								<option value="10">$40</option>
-								<option value="11">$45</option>
-								<option value="12">$50+</option>
+							<select class="span8" type="text" name="search">
+								<option value="">$ Your Budget</option>
+								<option value="0">$0</option>
+								<option value="1">$1</option>
+								<option value="5">$5</option>
+								<option value="10">$10</option>
+								<option value="15">$15</option>
+								<option value="20">$20</option>
+								<option value="25">$25</option>
+								<option value="30">$30</option>
+								<option value="35">$35</option>
+								<option value="40">$40</option>
+								<option value="45">$45</option>
+								<option value="50">$50</option>
 							</select>
-						-->
-						<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">
+						
+						<!--<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">-->
 						<button type="submit" class="btn btn-success">Submit</button></p>
-					</label>
+					
 						</div>
 				</form>
 				</div><!--/control-group-->

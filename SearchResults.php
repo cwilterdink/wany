@@ -102,37 +102,38 @@ header('Location: index.php');
 		?>
 <!------------------------------------------------------------------------------------------------------->
 	<div class="span10">
-	<div class="hero-unit">
-		<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
-		<div class="control-group">
-		<form action ="SearchResults.php"method="POST">
-		<!--<label class="control-label" for="password">Budget -->
-		<div class="controls">
-		<!-- <select class="span2" name="budget" id="budget">
-		<option></option>
-		<option value="01">$0</option>
-		<option value="02">$1</option>
-		<option value="03">$5</option>
-		<option value="04">$10</option>
-		<option value="05">$15</option>
-		<option value="06">$20</option>
-		<option value="07">$25</option>
-		<option value="08">$30</option>
-		<option value="09">$35</option>
-		<option value="10">$40</option>
-		<option value="11">$45</option>
-		<option value="12">$50+</option>
-		</select>
-		-->
-		<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">
-		<button type="submit" class="btn btn-success">Submit</button></p>
-		</label>
-		</div>
-		</form>
-		</div><!--/control-group-->
-
-		<!-------------------------------------------------------------------------------------------------->
-		</div><!--/hero-->
+          <div class="hero-unit">
+				<h1><!--<img src="" alt="logo">-->WANY SEARCH</h1>
+				<div class="control-group">
+					<form action ="SearchResults.php"method="POST">
+					
+						<div class="controls">
+							<select class="span7" type="text" name="search">
+								<option value="">$ Your Budget</option>
+								<option value="0">$0</option>
+								<option value="1">$1</option>
+								<option value="5">$5</option>
+								<option value="10">$10</option>
+								<option value="15">$15</option>
+								<option value="20">$20</option>
+								<option value="25">$25</option>
+								<option value="30">$30</option>
+								<option value="35">$35</option>
+								<option value="40">$40</option>
+								<option value="45">$45</option>
+								<option value="50">$50</option>
+							</select>
+						
+						<!--<p>$ <input class="span6" type="text" name="search" placeholder="Your Budget">-->
+						<button type="submit" class="btn btn-success">Submit</button></p>
+					
+						</div>
+				</form>
+				</div><!--/control-group-->
+	</div><!--/hero-->
+		
+<!------------------------------------------------------------------------------------------------------->
+		
 		<?php foreach ($response->body->Items as $value) : ?>
 		
 			<table class="table" style="border-top: none">
@@ -226,6 +227,7 @@ header('Location: index.php');
 			<?php endforeach; ?>	
 
 
+		
 		</div><!--/span-->
 	</div> <!--/.container-->
 	

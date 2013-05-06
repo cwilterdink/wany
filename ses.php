@@ -17,25 +17,25 @@
 
 <body>
 <div class="navbar navbar-fixed-top">
-<div class="navbar-inner">
-<div class="container">
-<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="brand" href="index.php">WANY</a>
-<div class="nav-collapse collapse">
-<ul class="nav">
-<li class="active"><a href="homepage.php">Home</a></li>
-<li><a href="settings.php">Settings</a></li>
-<li><a href="index.php">Logout</a></li>
-</ul>
-
-</div><!--/.nav-collapse -->
-</div>
-</div>
-</div><!--/.navbar-->
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.php">WANY</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.php">Home</a></li>
+              <li><a href="createAccount.php">Create Account</a></li>
+              <li><a href="passwordRecovery.php">Forgot Password</a></li>
+            </ul>
+			  
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div><!--/ .navbar-->
 
 <div class="container">
 <div class="hero-unit">
@@ -147,7 +147,7 @@
                             'Body.Text.Data' => $autoBody
                         )
                     );
-                    echo 'Thank you for signing up! A confirmation email has been sent to you.<br>';
+                    echo '<h1>Thank you for signing up!</h1> A confirmation email has been sent to you.<br>';
                     echo '<br><a href="index.php" class="btn btn-success btn-large">Return Home</a>';
 
                 }

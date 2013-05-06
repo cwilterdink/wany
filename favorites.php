@@ -37,7 +37,7 @@ padding-top: 60px; /* 60px to make the container go all the way to the bottom of
 <a class="brand" href="homepage.php">WANY</a>
 <div class="nav-collapse collapse">
 <ul class="nav">
-<li class="active"><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
+<li ><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
 <li><a href="#">About</a></li>
 </ul>
 <ul class=" nav pull-right dropdown">

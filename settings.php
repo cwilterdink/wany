@@ -36,7 +36,7 @@ if(!isset($_SESSION['user']))
           <a class="brand" href="homepage.php">WANY</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><a href="homepage.php"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="#">About</a></li>
             </ul>
 			<ul class=" nav pull-right dropdown">	
@@ -48,7 +48,7 @@ if(!isset($_SESSION['user']))
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="settings.php"><i class="icon-wrench"></i> User Settings</a></li>
-								<li><a href="#"><i class="icon-heart"></i> My Favorites</a></li>
+								<li><a href="favorites.php"><i class="icon-heart"></i> My Favorites</a></li>
 								<li class="divider"></li>
 								<li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
 							</ul>

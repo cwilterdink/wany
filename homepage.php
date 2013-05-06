@@ -41,7 +41,7 @@ if(!isset($_SESSION['user']))
               <li><a href="#">About</a></li>
               <?php if(	$_SESSION['admin']== "yes")
               {
-              	echo '<li><a href="activityverify.php">Verify Activity </a></li>'
+              	echo '<li><a href="activityverify.php">Verify Activity </a></li>';
               }
               ?>
             </ul>

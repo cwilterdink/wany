@@ -128,7 +128,7 @@
                     'verified' => "0",
                     'Fname' => $first,
                     'Lname' => $last,
-    				'favorites' => ""
+    				'admin' => "no"
                     ))
                     ));
                     
